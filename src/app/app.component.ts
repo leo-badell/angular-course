@@ -9,9 +9,9 @@ styleUrls: ['./app.component.css']
 })
 export class AppComponent {
 
-coreCourse :Course = COURSES[0];
-rxjsCourse :Course = COURSES[1];
-deepCourse :Course = COURSES[2];
+    courses = [...COURSES];
+    
+    // courses :Course[] = COURSES;
 
 onCourseSelected(course:Course) {
 

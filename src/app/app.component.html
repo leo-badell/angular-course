@@ -8,11 +8,28 @@
 
 <div class="courses">
 
-    <course-card (courseSelected)="onCourseSelected($event)" [course]="coreCourse"></course-card>
+    @for (course of courses; track course.id; let index = $index; 
+    let count = $count; let first = $first; let last = $last; let even = $even; let odd = $odd) {
 
-    <course-card (courseSelected)="onCourseSelected($event)"[course]="rxjsCourse"></course-card>
+        <!-- <h1>Count: {{count}}</h1> -->
+        <course-card 
+        [course]="course"
+        [index]="index"
+        [class.is-first]="first"
+        [class.is-last]="last"
+        [class.is-even]="even"
+        [class.is-odd]="odd"
 
-    <course-card (courseSelected)="onCourseSelected($event)"[course]="deepCourse"></course-card>
+
+        (courseSelected)="onCourseSelected($event)"  />
+
+    }
+    @empty {
+
+        <h1>No courses found!</h1>
+
+    }
+
 
 
 </div>
